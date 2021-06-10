@@ -5,4 +5,16 @@ class TodolistsController < ApplicationController
   
   def create
     list = List.new
+    
+    list.save
+    
+    redirect_to "/top"
+  end
+  
+  private
+  
+  def list_params
+    params.require(:list).permit(:title,:body)
+  end
+
 end
